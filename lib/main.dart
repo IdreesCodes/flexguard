@@ -39,6 +39,14 @@ class MyApp extends StatelessWidget {
           ),
           scaffoldBackgroundColor: const Color(0xFFF2F6FF),
           textTheme: GoogleFonts.poppinsTextTheme(),
+          inputDecorationTheme: const InputDecorationTheme(
+            filled: true,
+            fillColor: Color(0xFFF7F9FC),
+            border: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.all(Radius.circular(14))),
+            enabledBorder: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.all(Radius.circular(14))),
+            focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0xFF2166F3), width: 1.2), borderRadius: BorderRadius.all(Radius.circular(14))),
+            contentPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+          ),
           appBarTheme: const AppBarTheme(
             centerTitle: false,
             backgroundColor: Colors.transparent,
@@ -66,6 +74,14 @@ class MyApp extends StatelessWidget {
           ),
           scaffoldBackgroundColor: const Color(0xFF0B1220),
           textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme),
+          inputDecorationTheme: const InputDecorationTheme(
+            filled: true,
+            fillColor: Color(0xFF1A2332),
+            border: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.all(Radius.circular(14))),
+            enabledBorder: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.all(Radius.circular(14))),
+            focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Color(0xFF3B82F6), width: 1.2), borderRadius: BorderRadius.all(Radius.circular(14))),
+            contentPadding: EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+          ),
           appBarTheme: const AppBarTheme(
             centerTitle: false,
             backgroundColor: Colors.transparent,

@@ -273,10 +273,10 @@ class DatabaseHelper {
   Future<List<Map<String, Object?>>> getLast7DaysSpending({required int userId, required int nowMillis}) async {
     final db = await database;
     final sevenDaysAgo = nowMillis - 6 * 24 * 60 * 60 * 1000;
-    // Group by day (UTC) for expenses only
+    // Group by day (local timezone) for expenses only
     return await db.rawQuery('''
       SELECT 
-        date((date/1000), 'unixepoch') as day,
+        date((date/1000), 'unixepoch', 'localtime') as day,
         COALESCE(SUM(amount),0) as total
       FROM transactions
       WHERE user_id = ? AND type = 'expense' AND date BETWEEN ? AND ?

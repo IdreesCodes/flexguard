@@ -12,7 +12,7 @@ class AwardsScreen extends StatelessWidget {
     final userId = context.watch<AuthProvider>().currentUser!.id!;
     return Scaffold(
       appBar: AppBar(title: const Text('Awards')),
-      backgroundColor: AppColors.accentBlue,
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       body: FutureBuilder<_AwardsMetrics>(
         future: _loadMetrics(userId),
         builder: (context, snap) {

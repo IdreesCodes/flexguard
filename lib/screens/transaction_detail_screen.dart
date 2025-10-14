@@ -23,7 +23,7 @@ class TransactionDetailScreen extends StatelessWidget {
         padding: const EdgeInsets.all(24.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Hero(
-            tag: 'tx-${tx.id}-amount',
+            tag: 'tx-amount-${tx.id ?? 'n'}-${tx.date}',
             child: Material(color: Colors.transparent, child: Text('₹${tx.amount.toStringAsFixed(2)}', style: Theme.of(context).textTheme.displaySmall?.copyWith(color: color, fontWeight: FontWeight.bold))),
           ),
           const SizedBox(height: 16),

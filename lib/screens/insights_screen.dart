@@ -34,7 +34,7 @@ class _InsightsBody extends StatelessWidget {
     final coach = context.watch<CoachProvider>();
     return Scaffold(
       appBar: AppBar(title: const Text('Insights')),
-      backgroundColor: AppColors.accentBlue,
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       body: RefreshIndicator(
         onRefresh: () async {
           await Future.wait([
@@ -79,7 +79,7 @@ class _HighlightsCard extends StatelessWidget {
     final tipsCount = coach.tips.length;
     return Container(
       padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(color: Colors.white, borderRadius: Radii.md),
+      decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, borderRadius: Radii.md),
       child: Row(
         children: [
           Expanded(child: _HighlightTile(label: 'Next bill', value: nextDue)),
@@ -105,13 +105,13 @@ class _HighlightTile extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: AppColors.accentBlue,
+        color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
         borderRadius: Radii.md,
       ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(label, style: const TextStyle(color: AppColors.subtleText)),
+        Text(label, style: TextStyle(color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6))),
         const SizedBox(height: 6),
-        Text(value, style: const TextStyle(fontWeight: FontWeight.w600, color: AppColors.darkText)),
+        Text(value, style: TextStyle(fontWeight: FontWeight.w600, color: Theme.of(context).colorScheme.onSurface)),
       ]),
     );
   }
@@ -154,7 +154,7 @@ class _EmotionsPreview extends StatelessWidget {
         Container(
           margin: const EdgeInsets.only(bottom: 8),
           padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(color: Colors.white, borderRadius: Radii.md),
+          decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, borderRadius: Radii.md),
           child: Row(
             children: [
               CircleAvatar(child: Text(e.emotion[0])),
@@ -186,7 +186,7 @@ class _PaymentsPreview extends StatelessWidget {
         Container(
           margin: const EdgeInsets.only(bottom: 8),
           padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(color: Colors.white, borderRadius: Radii.md),
+          decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, borderRadius: Radii.md),
           child: Row(
             children: [
               const Icon(Icons.receipt_long, color: AppColors.primaryBlue),
@@ -213,7 +213,7 @@ class _CoachPreview extends StatelessWidget {
         for (final tip in p.tips)
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-            decoration: BoxDecoration(color: Colors.white, borderRadius: Radii.md),
+            decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, borderRadius: Radii.md),
             child: Text(tip),
           ),
       ],
@@ -227,7 +227,7 @@ class _SectionHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Padding(
         padding: const EdgeInsets.only(bottom: 8),
-        child: Text(title, style: const TextStyle(fontWeight: FontWeight.w700, color: AppColors.darkText)),
+        child: Text(title, style: TextStyle(fontWeight: FontWeight.w700, color: Theme.of(context).colorScheme.onSurface)),
       );
 }
 
@@ -237,7 +237,7 @@ class _EmptyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Container(
         padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(color: Colors.white, borderRadius: Radii.md),
+        decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, borderRadius: Radii.md),
         child: Text(text),
       );
 }

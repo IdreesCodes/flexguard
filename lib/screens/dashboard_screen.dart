@@ -285,11 +285,7 @@ class _SummaryChips extends StatelessWidget {
     }
 
     return Row(children: [
-      chip(Period.today, 'Today'),
-      const SizedBox(width: 8),
-      chip(Period.week, 'This Week'),
-      const SizedBox(width: 8),
-      chip(Period.month, 'This Month'),
+      
     ]);
   }
 }
@@ -303,7 +299,7 @@ class _SpendingChartSection extends StatelessWidget {
     final txp = context.watch<TransactionsProvider>();
     return Container(
       padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(color: Colors.white, borderRadius: Radii.md),
+      decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, borderRadius: Radii.md),
       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
         Row(children: [
           Text('Spending', style: Theme.of(context).textTheme.titleMedium),
@@ -346,7 +342,7 @@ class _CategoryCardState extends State<_CategoryCard> {
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
             borderRadius: Radii.md,
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.surface,
             boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 12, offset: const Offset(0, 6))],
           ),
           child: Row(children: [
@@ -419,7 +415,7 @@ class _GoalsPreview extends StatelessWidget {
             child: Container(
               margin: const EdgeInsets.only(right: 8),
               padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(color: Colors.white, borderRadius: Radii.md),
+              decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, borderRadius: Radii.md),
               child: Column(children: [
                 SizedBox(
                   width: 64,
@@ -448,7 +444,7 @@ class _EmptyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Container(
         padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(color: Colors.white, borderRadius: Radii.md),
+        decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, borderRadius: Radii.md),
         child: Text(text),
       );
 }
@@ -481,12 +477,12 @@ class _RiskBanner extends StatelessWidget {
         }
         return Container(
           padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(color: Colors.white, borderRadius: Radii.md, boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: const Offset(0, 4))]),
+          decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, borderRadius: Radii.md, boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: const Offset(0, 4))]),
           child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
             const Icon(Icons.info_outline, color: AppColors.warningRed),
             const SizedBox(width: 8),
             Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              const Text('Heads up', style: TextStyle(fontWeight: FontWeight.w700, color: AppColors.darkText)),
+              Text('Heads up', style: TextStyle(fontWeight: FontWeight.w700, color: Theme.of(context).colorScheme.onSurface)),
               const SizedBox(height: 6),
               for (final t in tips) Padding(padding: const EdgeInsets.only(bottom: 4), child: Text('• $t', style: const TextStyle(color: AppColors.subtleText))),
             ])),
@@ -508,13 +504,13 @@ class _RecurringBanner extends StatelessWidget {
     if (recurring.isEmpty) return const SizedBox.shrink();
     return Container(
       padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(color: Colors.white, borderRadius: Radii.md),
+      decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, borderRadius: Radii.md),
       child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
         const Icon(Icons.autorenew, color: AppColors.primaryBlue),
         const SizedBox(width: 10),
         Expanded(
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text('You have ${recurring.length} recurring charges', style: const TextStyle(fontWeight: FontWeight.w700, color: AppColors.darkText)),
+            Text('You have ${recurring.length} recurring charges', style: TextStyle(fontWeight: FontWeight.w700, color: Theme.of(context).colorScheme.onSurface)),
             const SizedBox(height: 6),
             Text('Next due: ${recurring.first.title} • ₹${recurring.first.amount.toStringAsFixed(0)}', style: const TextStyle(color: AppColors.subtleText)),
           ]),

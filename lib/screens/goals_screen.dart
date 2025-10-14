@@ -37,7 +37,7 @@ class GoalsScreen extends StatelessWidget {
               ),
             ],
           ),
-          backgroundColor: AppColors.accentBlue,
+          backgroundColor: Theme.of(context).colorScheme.secondary,
           body: ListView.builder(
             padding: const EdgeInsets.all(16),
             itemCount: gp.goals.length,
@@ -98,7 +98,7 @@ class _GoalCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(color: Colors.white, borderRadius: Radii.md),
+      decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, borderRadius: Radii.md),
       child: Row(
         children: [
           Stack(alignment: Alignment.center, children: [

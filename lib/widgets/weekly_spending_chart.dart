@@ -14,12 +14,12 @@ class WeeklySpendingChart extends StatelessWidget {
     final maxY = ((data.values.fold<double>(0, (p, c) => c > p ? c : p) * 1.3)).clamp(10.0, double.infinity);
 
     return Container(
-      decoration: BoxDecoration(color: Colors.white, borderRadius: Radii.md),
+      decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, borderRadius: Radii.md),
       padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Last 7 days', style: theme.textTheme.titleMedium?.copyWith(color: AppColors.darkText)),
+          Text('Last 7 days', style: theme.textTheme.titleMedium?.copyWith(color: Theme.of(context).colorScheme.onSurface)),
           const SizedBox(height: 12),
           SizedBox(
             height: 180,
@@ -39,7 +39,7 @@ class WeeklySpendingChart extends StatelessWidget {
                         if (idx < 0 || idx >= days.length) return const SizedBox.shrink();
                         final d = days[idx];
                         const labels = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-                        return Text(labels[d.weekday % 7], style: const TextStyle(color: AppColors.subtleText));
+                        return Text(labels[d.weekday % 7], style: TextStyle(color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7)));
                       },
                     ),
                   ),

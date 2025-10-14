@@ -19,7 +19,7 @@ class TransactionsScreen extends StatelessWidget {
         final txp = context.watch<TransactionsProvider>();
         return Scaffold(
           appBar: AppBar(title: const Text('Transactions')),
-          backgroundColor: AppColors.accentBlue,
+          backgroundColor: Theme.of(context).colorScheme.secondary,
           body: NotificationListener<ScrollNotification>(
             onNotification: (n) {
               if (n.metrics.pixels >= n.metrics.maxScrollExtent - 240 && txp.hasMore && !txp.isFetching) {

@@ -23,7 +23,7 @@ class _RootNavState extends State<RootNav> {
       body: IndexedStack(index: _index, children: _pages),
       bottomNavigationBar: NavigationBar(
         backgroundColor: Theme.of(context).colorScheme.surface,
-        indicatorColor: AppColors.accentBlue,
+        indicatorColor: Theme.of(context).colorScheme.primary.withOpacity(0.15),
         selectedIndex: _index,
         onDestinationSelected: (i) => setState(() => _index = i),
         destinations: const [

@@ -21,7 +21,7 @@ class TransactionListItem extends StatelessWidget {
       title: Text(tx.category ?? (tx.type.name[0].toUpperCase() + tx.type.name.substring(1))),
       subtitle: Text(tx.note ?? ''),
       trailing: Hero(
-        tag: 'tx-${tx.id}-amount',
+        tag: 'tx-amount-${tx.id ?? 'n'}-${tx.date}',
         child: Material(
           color: Colors.transparent,
           child: Text(

@@ -16,7 +16,7 @@ class BudgetsScreen extends StatelessWidget {
         final bp = context.watch<BudgetsProvider>();
         return Scaffold(
           appBar: AppBar(title: const Text('Budgets')),
-          backgroundColor: AppColors.accentBlue,
+          backgroundColor: Theme.of(context).colorScheme.secondary,
           body: ListView.builder(
             padding: const EdgeInsets.all(16),
             itemCount: bp.budgets.length,
@@ -87,7 +87,7 @@ class _BudgetCard extends StatelessWidget {
         return Container(
           margin: const EdgeInsets.only(bottom: 12),
           padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(color: Colors.white, borderRadius: Radii.md),
+          decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface, borderRadius: Radii.md),
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Row(
               children: [
